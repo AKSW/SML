@@ -5,6 +5,8 @@
 *.war
 *.ear
 
+# editor temp files
+*.swp
 
 mode-sml_ll1.js
 sml_table.js
