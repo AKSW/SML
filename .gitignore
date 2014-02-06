@@ -8,6 +8,8 @@
 # editor temp files
 *.swp
 
+tmp
+
 sml-codemirror-mode.js
 sml_table.js
 

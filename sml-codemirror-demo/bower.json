@@ -1,0 +1,7 @@
+{
+  "name": "sml-codemirror-demo",
+  "version": "0.0.1",
+  "dependencies": {
+    "sml-codemirror-mode": "0.0.1-SNAPSHOT"
+  }
+}

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html ng-app="SmlCodeMirrorDemo">
+
+    <head>
+<!--         <link rel="stylesheet" type="text/css" href="bower_components/codemirror/lib/codemirror.css" /> -->
+        <link rel="stylesheet" type="text/css" href="http://codemirror.net/lib/codemirror.css" />
+
+        <link rel="stylesheet" type="text/css" href="/home/raven/Projects/Eclipse/FlintSparqlEditor/sparql/css/sparqlcolors.css" />
+
+<!--         <script type="text/javascript" src="bower_components/codemirror/lib/codemirror.js"></script> -->
+        
+        <script type="text/javascript" src="http://codemirror.net/lib/codemirror.js"></script>
+        <script type="text/javascript" src="http://codemirror.net/addon/edit/matchbrackets.js"></script>
+        
+<!--        <script type="text/javascript" src="bower_components/codemirror/mode/xml.js"></script> -->
+        <script type="text/javascript" src="/home/raven/Projects/Eclipse/FlintSparqlEditor/ll1/mode-sml_ll1.js"></script>
+        <script type="text/javascript" src="/home/raven/Projects/Eclipse/FlintSparqlEditor/sparql/sparql11querymode_ll1.js"></script>
+        <script type="text/javascript" src="/home/raven/Projects/Eclipse/FlintSparqlEditor/sparql/sparql10querymode_ll1.js"></script>
+
+
+
+        <script src="http://codemirror.net/mode/xml/xml.js"></script>
+        <script type="text/javascript" src="bower_components/angular/angular.js"></script>
+        <script type="text/javascript" src="bower_components/angular-ui-codemirror/ui-codemirror.js"></script>
+
+        <script type="text/javascript">
+            var myAppModule = angular.module('SmlCodeMirrorDemo', ['ui.codemirror']);
+        
+            myAppModule.controller('MyController', [ '$scope', function($scope) {
+                $scope.editorOptions = {
+                    lineWrapping : true,
+                    lineNumbers: true,
+        			tabMode: 'indent',
+        			matchBrackets: true,                      
+    //                readOnly: 'nocursor',
+                    mode: 'sml'
+//                    mode: 'sparql11query'
+                };
+            }]);    
+        </script>
+    </head>
+
+    <body ng-controller="MyController">
+        <textarea ui-codemirror="editorOptions">
+Create view h as construct {
+  test
+}
+with
+   ?s = uri(?x, ?y)
+constrain
+  ?x prefix "foobar"
+from
+  [[test]]
+        
+        </textarea>
+    </body>
+</html>
+
+

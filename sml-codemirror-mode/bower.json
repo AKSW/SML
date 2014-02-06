@@ -12,7 +12,7 @@
     "rdb2rdf",
     "sparql-to-sql",
     "sml",
-    "syntax-highlighting"
+    "syntax-highlighting",
     "codemirror"
   ],
   "license": "MIT",
