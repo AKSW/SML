@@ -12,8 +12,8 @@
 	<url>http://sml.aksw.org/</url>
 
 	<modules>
-		<module>r2rml-parser</module>
-		<module>r2rml-exporter</module>
+<!--		<module>r2rml-parser</module> -->
+<!--		<module>r2rml-exporter</module> -->
 	</modules>
 
 
