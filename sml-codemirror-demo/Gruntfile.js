@@ -6,6 +6,7 @@ module.exports = function(grunt) {
     'bower-install': {
       target: {
         src: ['app/index.html'],
+        cwd: '..'
       }
     },
 

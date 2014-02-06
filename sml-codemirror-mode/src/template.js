@@ -32,6 +32,9 @@ CodeMirror.defineMode("%%%modename%%%", function(config, parserConfig) {
 		var PLX= '('+PERCENT+'|'+PN_LOCAL_ESC+')';
 		var PN_LOCAL;
 		var BLANK_NODE_LABEL;
+
+                var lexVersion="sparql11";
+
 		if (lexVersion=="sparql11") {
 			PN_LOCAL= '('+PN_CHARS_U+'|:|[0-9]|'+PLX+')(('+PN_CHARS+'|\\.|:|'+PLX+')*('+PN_CHARS+'|:|'+PLX+'))?';
 			BLANK_NODE_LABEL = '_:('+PN_CHARS_U+'|[0-9])(('+PN_CHARS+'|\\.)*'+PN_CHARS+')?';
