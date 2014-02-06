@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html ng-app="SmlCodeMirrorDemo">
+
+    <head>
+
+        <!-- bower:css -->
+        <link rel="stylesheet" href="bower_components/codemirror/lib/codemirror.css" />
+        <!-- endbower -->
+
+
+        <!-- bower:js -->
+        <script src="bower_components/angular/angular.js"></script>
+        <script src="bower_components/codemirror/lib/codemirror.js"></script>
+        <script src="bower_components/angular-ui-codemirror/ui-codemirror.js"></script>
+        <script src="bower_components/sml-codemirror-mode/sml-codemirror-mode.js"></script>
+        <!-- endbower -->
+
+        <script type="text/javascript">
+            var myAppModule = angular.module('SmlCodeMirrorDemo', ['ui.codemirror']);
+        
+            myAppModule.controller('MyController', [ '$scope', function($scope) {
+                $scope.editorOptions = {
+                    lineWrapping : true,
+                    lineNumbers: true,
+        			tabMode: 'indent',
+        			matchBrackets: true,                      
+                    mode: 'sml'
+                };
+            }]);    
+        </script>
+    </head>
+
+    <body ng-controller="MyController">
+        <textarea ui-codemirror="editorOptions">
+Create view h as construct {
+  test
+}
+with
+   ?s = uri(?x, ?y)
+constrain
+  ?x prefix "foobar"
+from
+  [[test]]
+        
+        </textarea>
+    </body>
+</html>
+
+

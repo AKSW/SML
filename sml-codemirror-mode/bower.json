@@ -5,7 +5,7 @@
     "Claus Stadler <cstadler@informatik.uni-leipzig.de>"
   ],
   "description": "SML Code Mirror Syntax Highlighting Mode",
-  "main": "sml-codemirror-mode.js",
+  "main": ["css/sparqlcolors.css", "sml-codemirror-mode.js"],
   "dependencies": {
   },
   "keywords": [

@@ -2,6 +2,7 @@
   "name": "sml-codemirror-demo",
   "version": "0.0.1",
   "dependencies": {
+    "angular-ui-codemirror": ">=0.1.0",
     "sml-codemirror-mode": "0.0.1-SNAPSHOT"
   }
 }
