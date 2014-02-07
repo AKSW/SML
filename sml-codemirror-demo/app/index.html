@@ -33,16 +33,17 @@
 
     <body ng-controller="MyController">
         <textarea ui-codemirror="editorOptions">
-Create view h as construct {
-  test
-}
-with
-   ?s = uri(?x, ?y)
-constrain
-  ?x prefix "foobar"
-from
-  [[test]]
-        
+Create View lgd As
+  Construct {
+    ?s ?p ?o
+  }
+  with
+   ?s = uri(?x)
+  Constrain
+    ?x prefix "http://linkedgeodata.org"
+  From
+    [[SELECT * FROM nodes]]
+
         </textarea>
     </body>
 </html>
