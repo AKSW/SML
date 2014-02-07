@@ -460,7 +460,9 @@ CodeMirror.defineMode("%%%modename%%%", function(config, parserConfig) {
 		return n * config.indentUnit;
 	};
 
-        var acceptEmpty = false;
+    var acceptEmpty = false;
+    var defaultQueryType = null;
+    var startSymbol = startSymbol || null;
 
 	return {
 		token: tokenBase,
