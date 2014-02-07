@@ -8,6 +8,10 @@
 # editor temp files
 *.swp
 
+.tmp
+.sass-cache
+
+
 bower_components
 node_modules
 dist
