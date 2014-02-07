@@ -8,6 +8,11 @@
 # editor temp files
 *.swp
 
-mode-sml_ll1.js
+bower_components
+node_modules
+dist
+tmp
+
+sml-codemirror-mode.js
 sml_table.js
 

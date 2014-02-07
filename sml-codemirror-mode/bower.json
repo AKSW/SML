@@ -1,0 +1,27 @@
+{
+  "name": "sml-codemirror-mode",
+  "homepage": "https://github.com/AKSW/SML",
+  "authors": [
+    "Claus Stadler <cstadler@informatik.uni-leipzig.de>"
+  ],
+  "description": "SML Code Mirror Syntax Highlighting Mode",
+  "main": ["css/sparqlcolors.css", "sml-codemirror-mode.js"],
+  "dependencies": {
+  },
+  "keywords": [
+    "rdb2rdf",
+    "sparql-to-sql",
+    "sml",
+    "syntax-highlighting",
+    "codemirror"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
+
