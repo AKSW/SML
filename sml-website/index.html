@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+        <title></title>
+        <meta name="description" content=""/>
+        <meta name="viewport" content="width=device-width"/>
+        <link rel="stylesheet" href="styles/main.css"/>
+
+        <link rel="stylesheet" href="libs/twitter-bootstrap/3.0.1/css/bootstrap.min.css" />
+
+		<style media="screen" type="text/css">
+		.image {
+	 	    max-width: 144px;
+	 	    max-height: 144px;
+		    vertical-align: middle;
+		}
+		
+		.image-frame {
+			display: table;
+	
+		    width: 150px;
+		    height: 150px;	
+			line-height: 150px; /* should match height */
+			text-align: center;
+	  
+			border: 1px;
+			border-collapse: true;
+			border-style: solid;
+			border-color: #CCCCCC;
+			background-color: #EEEEEE;
+		}
+		</style>
+
+    </head>
+    <body ng-app="faceteWebsiteApp">
+	
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12 col-md-offset-0">
+					<div class="jumbotron">
+						<!--<img src="resources/images/facete-banner.png" style="top: 0px; width: 100%" /> -->
+						<img src="resources/images/banner4.png" style="top: 0px; width: 100%" />
+
+						<h1 style="bottom: 80px" color: #8080ff">Sparqlification Mapping Language</h1>
+						<p>A language to map relational data to RDF
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<h2>Tools and Specs</h2>
+					
+				<table class="table table-striped">
+					<tr><th><!--Screenshot--></th><th>Description</th><th>Links</th></tr>
+					<tr>
+						<td>
+                    		<div class="image-frame">
+                    			<img class="image" src="resources/images/SML_parts2.png" />
+                    		</div>
+						</td>
+						<td>
+							<b>Sparqlification Mapping Language:</b>
+							This document describes the Sparqlification Mapping Language (SML), a language to express custom mapping rules betweem relational data and RDF.
+							This specification introduces the basic SML terminology and describes the structure of SML mappings and its components.
+						</td>
+						<td>
+							<a class="btn btn-primary" role="button" href="http://sparqlify.org/wiki/SML">Specification</a>
+						</td>
+					</tr>
+
+					<tr>
+						<td>
+                    		<div class="image-frame">
+                    			<img class="image" src="resources/images/sml-codemirror.png" />
+                    		</div>						
+						</td>
+						<td>
+							<b>SML Syntax Highlighting Plugin for CodeMirror</b> Edit SML conveniently in the browser with this colorful plugin. <br />
+As a developer you can install it using <pre>bower install sml-codemirror-mode</pre>.
+						</td>
+						<td>
+							<a class="btn btn-primary" role="button" href="demo/codemirror">Demo</a>
+						</td>
+					</tr>					
+
+                    <tr>
+                    	<td>
+                    		<div class="image-frame">
+                    			<img class="image" src="resources/images/converters2.png" />
+                    		</div>
+                    	</td>
+                    	<td>
+				<b>R2RML Converters:</b>
+				Tools to convert SML mappings to R2RML and vice versa.
+                    	</td>
+                    	<td>
+                    		<a class="btn btn-primary" role="button" href="https://github.com/AKSW/SML">Source Code</a>
+                    	</td>
+                    </tr>
+
+                    <tr>
+                    	<td>
+                    		<div class="image-frame">
+                    			<img class="image" src="resources/images/vim_cropped2.png" />
+                    		</div>
+                    	</td>
+                    	<td>
+				<b>Vim Syntax Highlighting for SML:</b>
+				<a href="http://www.vim.org/index.php">Vim</a> is a powerful and highly configurable editor.
+				Vim is free software and part of all mainstream Linux distributions but also <a href="http://www.vim.org/download.php">available for other platforms</a>.
+				The syntax highlighting definitions just have to be copied to the <code>.vim/syntax/</code> directory of your home directory.
+				After adding the following lines to your <code>vimrc</code> file, the syntax highlighting is applied automatically when files with the extensions '.sparqlify' or '.sml' are opened:
+				<pre>au BufNewFile,BufRead *.sparqlify setfiletype sml
+au BufNewFile,BufRead *.sml setfiletype sml</pre>
+				Alternatively, you can enable the highlighting explicitly, typing <code>set syntax=sml</code> in Vim's execution mode.
+				
+                    	</td>
+                    	<td>
+                    		<a class="btn btn-primary" role="button" href="https://github.com/patrickwestphal/sml.vim">Source Code</a>
+                    	</td>
+                    </tr>
+                    
+				</table>
+			</div>	
+
+		</div>
+
+
+		<!--[if lt IE 7]>
+            <p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.</p>
+        <![endif]-->
+        
+        <!--[if lt IE 9]>
+            <script src="scripts/vendor/es5-shim.min.js"></script>
+            <script src="scripts/vendor/json3.min.js"></script>
+        <![endif]-->
+
+        <!-- Add your site or application content here -->
+        <div class="container" ng-view></div>
+
+        <script src="scripts/vendor/angular.js"></script>
+
+        <!-- build:js scripts/scripts.js -->
+        <script src="scripts/app.js"></script>
+        <script src="scripts/controllers/main.js"></script>
+        <!-- endbuild -->
+
+        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+<!--         <script>
+             var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
+             (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+             g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+             s.parentNode.insertBefore(g,s)}(document,'script'));
+             </script> -->
+    </body>
+</html>
