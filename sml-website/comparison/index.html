@@ -1,0 +1,323 @@
+<html>
+
+<head>
+	<link rel="stylesheet" href="bootstrap.css" />
+</head>
+
+<body>
+
+<h2>Example 2.3: Mapping a Simple Table</h2>
+
+<table>
+<tr><td>
+<pre>
+@prefix rr: &lt;http://www.w3.org/ns/r2rml#&gt;.
+@prefix ex: &lt;http://example.com/ns#&gt;.
+
+<#TriplesMap1>
+    rr:logicalTable [ rr:tableName "EMP" ];
+    rr:subjectMap [
+        rr:template "http://data.example.com/employee/{EMPNO}";
+        rr:class ex:Employee;
+    ];
+    rr:predicateObjectMap [
+        rr:predicate ex:name;
+        rr:objectMap [ rr:column "ENAME" ];
+    ].
+</pre>
+</td><td>
+<pre>
+Prefix sml: &lt;http://ns.aksw.org/sml/#&gt;
+Prefix ex: &lt;http://example.com/ns#&gt;
+
+Create View TriplesMap1 As
+  Construct {
+    ?s
+      a ex:Employee ;
+      ex:name ?n
+  }
+  With
+    ?s = uri('http://data.example.com/employee/', ?EMPNO)
+    ?n = plainLiteral(?ENAME)
+  From
+    EMP
+</pre>
+</td></tr>
+</table>
+
+
+<h2>Example 2.4: Computing a Property with an R2RML View</h2>
+
+<table>
+<tr><td>
+<pre>
+<#DeptTableView> rr:sqlQuery """
+SELECT DEPTNO,
+       DNAME,
+       LOC,
+       (SELECT COUNT(*) FROM EMP WHERE EMP.DEPTNO=DEPT.DEPTNO) AS STAFF
+FROM DEPT;
+""".
+
+<#TriplesMap2>
+    rr:logicalTable <#DeptTableView>;
+    rr:subjectMap [
+        rr:template "http://data.example.com/department/{DEPTNO}";
+        rr:class ex:Department;
+    ];
+    rr:predicateObjectMap [
+        rr:predicate ex:name;
+        rr:objectMap [ rr:column "DNAME" ];
+    ];
+    rr:predicateObjectMap [
+        rr:predicate ex:location;
+        rr:objectMap [ rr:column "LOC" ];
+    ];
+    rr:predicateObjectMap [
+        rr:predicate ex:staff;
+        rr:objectMap [ rr:column "STAFF" ];
+    ].
+</pre>
+</td><td>
+<pre>
+Create Sql View DeptTableView As """
+SELECT DEPTNO,
+       DNAME,
+       LOC,
+       (SELECT COUNT(*) FROM EMP WHERE EMP.DEPTNO=DEPT.DEPTNO) AS STAFF
+FROM DEPT
+"""
+
+Create View TriplesMap2 As
+  Construct {
+    ?s
+      a ex:Department ;
+      ex:name ?n ;
+      ex:location ?l ;
+      ex:staff ?st
+  }
+  With
+    ?s  = uri('http://data.example.com/department/', ?DEPTNO)
+    ?n  = plainLiteral(?DNAME)
+    ?l  = plainLiteral(?LOC)
+    ?st = plainLiteral(?STAFF)
+  From
+    DeptTableView
+</pre>
+</td></tr>
+</table>
+
+Note: The choice of [[ ... ]] for escaping may be suboptimal. We will switch to """ ... """ instead, as this is also known from SPARQL. In practice it means, that such escaping routine which may be provided by Semantic Web frameworks can just be reused.
+Note: Our convention is to use upper case for SQL and Upper camel case for Sparql.
+
+
+<h2>Example 2.5</h2>
+
+<table>
+<tr><td>
+<pre>
+<#TriplesMap1>
+    rr:predicateObjectMap [
+        rr:predicate ex:department;
+        rr:objectMap [
+            rr:parentTriplesMap <#TriplesMap2>;
+            rr:joinCondition [
+                rr:child "DEPTNO";
+                rr:parent "DEPTNO";
+            ];
+        ];
+    ].</pre>
+</td><td>
+<pre>
+Create View EmployeeToDepartment As
+    ?s ex:department ?o.
+  With
+    ?s = uri('http://data.example.com/employee/', ?e.EMPNO)
+    ?o = uri('http://data.example.com/department/', ?d.DEPTNO)
+  From
+    EMP e Join DEPT d On (d.DEPTNO = e.EMPNO)
+</pre>
+</td></tr>
+</table>
+
+<pre>
+Create View EmployeeToDepartment As
+    ?s ex:department ?o
+  With
+    ?s = uri('http://data.example.com/employee/', ?EMPNO)
+    ?o = uri('http://data.example.com/department/', ?DEPTNO)
+  From
+    EMP
+</pre>
+
+Note: Joining in R2RML serves two purposes:
+<ol>
+    <li>Referencing another triplesmaps' subject without repeating its term-map</li>
+    <li>Joining tables as their union of columns are needed for creating RDF terms</li>
+</ol>
+For SML, at present we recommend to just repeat the corresponding expression.
+//?s = Employee.?o
+
+<h2>Example 2.6: Many-to-Many Tables</h2>
+<table>
+<tr><td>
+<pre>
+<#TriplesMap3>
+    rr:logicalTable [ rr:tableName "EMP2DEPT" ];
+    rr:subjectMap [ rr:template "http://data.example.com/employee={EMPNO}/department={DEPTNO}" ];
+    rr:predicateObjectMap [
+        rr:predicate ex:employee;
+        rr:objectMap [ rr:template "http://data.example.com/employee/{EMPNO}" ];
+    ];
+    rr:predicateObjectMap [
+        rr:predicate ex:department;
+        rr:objectMap [ rr:template "http://data.example.com/department/{DEPTNO}" ];
+    ].
+</pre>
+</td><td>
+<pre>
+Create View TriplesMap3 As
+  Construct {
+    ?s
+      ex:employee ?e ;
+      ex:department ?d
+  With
+    ?s = uri('http://data.example.com/employee=', ?EMPNO, '/department=', ?DEPTNO)
+    ?e = uri('http://data.example.com/employee/' ?EMPNO)
+    ?d = uri('http://data.example.com/department/', ?DEPTNO)
+  From
+    EMP
+</pre>
+</td></tr>
+</table>
+    
+
+<h2>2.7 Example: Translating database type codes to IRIs</h2>
+<table>
+<tr><td>
+<pre>
+<#TriplesMap3>
+    rr:logicalTable [ rr:tableName "EMP2DEPT" ];
+    rr:subjectMap [ rr:template "http://data.example.com/employee={EMPNO}/department={DEPTNO}" ];
+    rr:predicateObjectMap [
+        rr:predicate ex:employee;
+        rr:objectMap [ rr:template "http://data.example.com/employee/{EMPNO}" ];
+    ];
+    rr:predicateObjectMap [
+        rr:predicate ex:department;
+        rr:objectMap [ rr:template "http://data.example.com/department/{DEPTNO}" ];
+    ].
+</pre>
+</td><td>
+<pre>
+Create View TriplesMap3 As
+  Construct {
+    ?s
+      ex:employee ?e ;
+      ex:department ?d
+  With
+    ?s = uri('http://data.example.com/employee=', ?EMPNO, '/department=', ?DEPTNO)
+    ?e = uri('http://data.example.com/employee/' ?EMPNO)
+    ?d = uri('http://data.example.com/department/', ?DEPTNO)
+  From
+    EMP2DEPT
+</pre>
+</td></tr>
+</table>
+
+
+
+
+<h2>SML and D2RQ</h2>
+D2RQ is centered around the idea of first creating <i>maps</i> for classes and then using another set of <i>maps</i> for attaching property-value pairs to them.
+
+<!--
+We refer to the core of a RDB2RDF mapping language as all constructs which are relevant for the creation of triples.
+The core does not include language features that may tune the behaviour of RDB2RDF processors, such as compatibilty hints (e.g. SQL dialect) and optimization hints (constraints, inverse expression).
+
+D2RQ cannot express properties, language tags and datatypes originating from the underlying table.
+Hence, at the core it is less expressive than R2RML/SML. (TODO: Seems d2rq:dynamicProperty was added, so maybe its the same now).
+-->
+
+
+The following shows how <a href="http://d2rq.org/d2rq-language#examples">D2RQ Mapping Example</a> looks in SML.
+Note that with D2RQ, in constrast to R2RML and SML, database connectivity related attributes are expressed as part of the mapping.
+
+<table>
+<tr><td>
+<pre>
+map:Conference a d2rq:ClassMap;
+    d2rq:dataStorage map:Database1;
+    d2rq:class :Conference;
+    d2rq:uriPattern "http://conferences.org/comp/confno@@Conferences.ConfID@@";
+    .
+map:eventTitle a d2rq:PropertyBridge;
+    d2rq:belongsToClassMap map:Conference;
+    d2rq:property :eventTitle;
+    d2rq:column "Conferences.Name";
+    d2rq:datatype xsd:string;
+    .
+map:location a d2rq:PropertyBridge;
+    d2rq:belongsToClassMap map:Conference;
+    d2rq:property :location;
+    d2rq:column "Conferences.Location"; 
+    d2rq:datatype xsd:string;
+    .
+</pre>
+</td><td>
+<pre>
+Create View Conference3 As
+  Construct {
+    ?s
+      a :Conference ;
+      :eventTitle ?et ;
+      :location ?l
+  With
+    ?s  = uri('http://conferences.org/comp/confno', ?ConfID)
+    ?et = plainLiteral(?Name)
+    ?d  = typedLiteral(?Location, xsd:string)
+  From
+    Conferences
+</pre>
+</td></tr>
+</table>
+
+
+
+
+
+
+
+
+<h3> Additional Notes</h3>
+
+Example 2.5
+Note that in SML it is possible to use nampespaces in term construction by using the 'ns:' syntax:
+<pre>
+Prefix emp: &lt;http://data.example.com/employee/&gt;
+Prefix dept: &lt;http://data.example.com/department/&gt;
+
+Create View TriplesMap1 As
+  Construct {
+    ?s a ex:Employee
+  }
+  With
+    ?s = uri(emp:, EMPNO)
+  From EMP
+
+Create View EmployeeToDepartment As
+  Construct {
+    ?s ex:department ?o
+  }
+  With
+    ?s = uri(emp:, ?EMPNO)
+    ?o = uri(dept:, ?DEPTNO)
+  From
+    EMP
+</pre>
+
+
+</body>
+
+</html>
+
