@@ -266,7 +266,7 @@ map:location a d2rq:PropertyBridge;
 </pre>
 </td><td>
 <pre>
-Create View Conference3 As
+Create View Conference As
   Construct {
     ?s
       a :Conference ;
@@ -287,6 +287,19 @@ Create View Conference3 As
 
 
 
+<h3>Essential Keywords</h3>
+<table class="table table-striped">
+<tr><th>Category</th><th>R2RML</th><th>SML</th></tr>
+
+<tr><td>View Definition</td><td>(implicit by properties)</td><td>Create, View, As</td></tr>
+<tr><td>Quad Pattern Specification</td><td>graphMap, subjectMap, predicateObjectMap, predicateMap, objectMap</td><td>(sparql syntax)</td></tr>
+<tr><td>RDF Term Specification</td><td>constant, template, column, language, dataType, termType</td><td>uri, bNode, plainLiteral, typedLiteral</td></tr>
+<tr><td>Logical Table Specification (Simple)</td><td>logicalTable, tableName, sqlQuery</td><td>From</td></tr>
+<tr><td>Logical Table Specification (Join)</td><td>parentTriplesMap, joinCondition, child, parent</td><td>Join, On</td></tr>
+<tr><td>Shorthands</td><td>graph, subject, predicate, object, class</td><td></td><td>(none required due to use of sparql syntax)</td></tr>
+<tr><td>Compatibility Hints</td><td>sqlVersion</td><td>(not yet considered)</td></tr>
+<tr><td>Optimization Hints</td><td>inverseExpression</td><td>(not yet considered)</td></tr> 
+</table>
 
 
 <h3> Additional Notes</h3>
