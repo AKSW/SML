@@ -55,13 +55,13 @@ termCtorExpr ==>
     ['BNODE', '(', expression, ')'].
 
 termCtorExpr ==>
-    ['URI', '(', expression, *([',',expression]), ')'].
+    ['URI', '(', expression, *([',', expression]), ')'].
 
 termCtorExpr ==>
-    ['PLAINLITERAL', '(', expression, ?(expression), ')'].
+    ['PLAINLITERAL', '(', expression, ?([',', expression]), ')'].
 
 termCtorExpr ==>
-    ['TYPEDLITERAL', '(', expression, expression, ')'].
+    ['TYPEDLITERAL', '(', expression, ',' expression, ')'].
 
 % We use 'restriction' instead of 'constraint' to avoid name clash with other productions
 constrainClause ==>
