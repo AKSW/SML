@@ -58,10 +58,10 @@ termCtorExpr ==>
     ['URI', '(', expression, *([',',expression]), ')'].
 
 termCtorExpr ==>
-    ['PLAIN_LITERAL', '(', expression, expression, ')'].
+    ['PLAINLITERAL', '(', expression, ?(expression), ')'].
 
 termCtorExpr ==>
-    ['TYPED_LITERAL', '(', expression, expression, ')'].
+    ['TYPEDLITERAL', '(', expression, expression, ')'].
 
 % We use 'restriction' instead of 'constraint' to avoid name clash with other productions
 constrainClause ==>
