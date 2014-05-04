@@ -48,8 +48,20 @@ withClause ==>
 varDef ==>
     [var, '=', termCtorExpr].
 
+%termCtorExpr ==>
+%    [expression].
+
 termCtorExpr ==>
-    [expression].
+    ['BNODE', '(', expression, ')'].
+
+termCtorExpr ==>
+    ['URI', '(', expression, *([',',expression]), ')'].
+
+termCtorExpr ==>
+    ['PLAIN_LITERAL', '(', expression, expression, ')'].
+
+termCtorExpr ==>
+    ['TYPED_LITERAL', '(', expression, expression, ')'].
 
 % We use 'restriction' instead of 'constraint' to avoid name clash with other productions
 constrainClause ==>
@@ -736,6 +748,8 @@ tm_keywords([
 % <sml-extension>
 'VIEW',
 'CONSTRAIN',
+'PLAIN_LITERAL',
+'TYPED_LITERAL',
 % </sml-extension>
 
 
