@@ -1,6 +1,8 @@
 #!/bin/bash
 set -e
 
+(cd src && ./build-sml.sh)
+
 targetGitEndpoint='git@github.com:AKSW/SML-CodeMirror-Mode-Bower.git'
 targetFolder='target/release/repo'
 

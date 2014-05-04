@@ -748,8 +748,8 @@ tm_keywords([
 % <sml-extension>
 'VIEW',
 'CONSTRAIN',
-'PLAIN_LITERAL',
-'TYPED_LITERAL',
+'PLAINLITERAL',
+'TYPEDLITERAL',
 % </sml-extension>
 
 
