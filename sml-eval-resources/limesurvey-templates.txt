@@ -1,0 +1,70 @@
+&lt;http://www.w3.org/2001/XMLSchema#integer&gt
+
+
+
+<h2>Mark all the triples that generated from the given table by the mapping</h2>
+
+<table class="table table-striped">
+  <thead>
+    <tr><th>employees</th></tr>
+    <tr><th>id (int)</th></tr><tr><th>name (text)</th></tr>
+  </thead>
+  <tbody>
+  <tr><td>1</td><td>Susan</td></tr>
+  </tbody>
+</table>
+
+<textarea style="height: 250px" ui-codemirror="editorOptions.ttl">
+@base &lt;http://example.com/base/&gt; .
+@prefix rr: &lt;http://www.w3.org/ns/r2rml#&gt; .
+@prefix ex: &lt;http://example.com/&gt; .
+@prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+
+&lt;TriplesMap1&gt;
+  a rr:TriplesMap;
+  rr:logicalTable [ rr:tableName "employees"; ] ;
+  rr:subjectMap [
+    rr:template "http://example.com/\{id\}" ;
+    rr:class ex:Employee
+  ] ;
+  rr:predicateObjectMap [
+    rr:predicate rdfs:label ;
+    rr:objectMap [ rr:column "name" ]
+  ] .
+</textarea>
+
+
+
+<h2>Mark all the triples that generated from the given table by the mapping</h2>
+
+<table class="table table-striped">
+  <thead>
+    <tr><th>departments</th></tr>
+    <tr><th>id (int)</th></tr><tr><th>name (text)</th></tr>
+  </thead>
+  <tbody>
+  <tr><td>1</td><td>Development</td></tr>
+  </tbody>
+</table>
+
+<textarea style="height: 250px" ui-codemirror="editorOptions.ttl">
+Prefix ex: &lt;http://example.com/&gt;
+Prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+
+Create View TriplesMap1 As
+  Construct {
+    ?s
+      a ex:Department ;
+      rdfs:label ?l
+  }
+  With
+    ?s = uri(ex:, ?id)
+    ?l = plainLiteral(?name)
+  From
+    departments
+</textarea>
+
+
+
+
+
