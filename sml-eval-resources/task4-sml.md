@@ -18,7 +18,7 @@ Mark the view that <i>exactly</i> yields the given reference output based on the
 <br style="clear: both;" />
 
 Reference Output (assume the prefixes hold for the whole task):
-<textarea style="height: 140px" ui-codemirror="editorOptions.ttl" readonly>
+<textarea style="height: 220px" ui-codemirror="editorOptions.ttl" readonly>
 Prefix xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt;
 Prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
 
@@ -29,12 +29,12 @@ Prefix r: &lt;http://example.com/resource/&gt;
 r:Development
   a o:Department ;
   o:id "1"^^xsd:integer ;
-  rdfs:label "Department" .
+  rdfs:label "Development" .
 
 r:Design
   a o:Department ;
   o:id "2"^^xsd:integer ;
-  rdfs:label "Development" .
+  rdfs:label "Design" .
 </textarea>
 
 

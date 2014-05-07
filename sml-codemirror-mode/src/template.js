@@ -103,6 +103,10 @@ CodeMirror.defineMode("%%%modename%%%", function(config, parserConfig) {
 						regex:new RegExp("^"+WS+"+"),
 						style:"sp-ws" },
 
+					{ name: "a",
+						regex: new RegExp("^a"),
+						style: "sp-punc" },
+
 					{ name: "COMMENT",
 						regex:new RegExp("^"+COMMENT, 'm'),
 						style:"sp-comment" },

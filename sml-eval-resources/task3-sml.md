@@ -39,7 +39,7 @@ Create View Departments As
     ?s rdfs:label ?l
   }
   With
-    ?s = uri(ex:, ?id)
+    ?s = uri(ex:, 'department', ?id)
     ?l = plainLiteral(?name)
   From
     departments

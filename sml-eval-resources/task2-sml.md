@@ -20,7 +20,7 @@ Mark all the triples that actually appear as output of the given mapping for the
 Prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
 Prefix ex: &lt;http://example.com/&gt;
 
-Create View TriplesMap1 As
+Create View Departments As
   Construct {
     ?s a ex:Department .
     ?s rdfs:label ?l
