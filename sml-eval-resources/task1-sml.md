@@ -36,8 +36,9 @@ Create View DepartmentsView As
 
 
 
+
 <textarea style="height: 30px" ui-codemirror="editorOptions.ttl" readonly>&lt;http://example.com/1&gt; a ex:Department  .</textarea>
-<textarea style="height: 30px" ui-codemirror="editorOptions.ttl" readonly>&lt;http://example.com/Department&gt; a ex:Department  .</textarea>
+<textarea style="height: 30px" ui-codemirror="editorOptions.ttl" readonly>&lt;http://example.com/Development&gt; a ex:Department  .</textarea>
 <textarea style="height: 30px" ui-codemirror="editorOptions.ttl" readonly>&lt;http://example.com/1&gt; ex:id 1 .</textarea>
 <textarea style="height: 30px" ui-codemirror="editorOptions.ttl" readonly>ex:Department a "1" .</textarea>
 

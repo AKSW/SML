@@ -28,13 +28,13 @@ Prefix r: &lt;http://example.com/resource/&gt;
 
 r:Development
   a o:Department ;
-  o:id "1"^^xsd:integer ;
-  rdfs:label "Development" .
+  rdfs:label "Development" ;
+  o:id "1"^^xsd:integer .
 
 r:Design
   a o:Department ;
-  o:id "2"^^xsd:integer ;
-  rdfs:label "Design" .
+  rdfs:label "Design" ;
+  o:id "2"^^xsd:integer .
 </textarea>
 
 

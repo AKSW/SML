@@ -30,14 +30,14 @@ Mark the view that <i>exactly</i> yield the given reference output based on the 
 
 
 Reference Output (assume the prefixes hold for the whole task):
-<textarea style="height: 100px" ui-codemirror="editorOptions.ttl" readonly>
-Prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+<textarea style="height: 120px" ui-codemirror="editorOptions.ttl" readonly>
+@prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt; .
 
-Prefix o: &lt;http://example.com/ontology/&gt;
-Prefix e: &lt;http://example.com/employee/&gt;
-Prefix d: &lt;http://example.com/department/&gt;
+@prefix d: &lt;http://example.com/department/&gt; .
+@prefix o: &lt;http://example.com/ontology/&gt; .
+@prefix e: &lt;http://example.com/employee/&gt; .
 
-d:Development o:hasEmployee e:Susan
+d:Development o:hasEmployee e:Susan .
 </textarea>
 
 
@@ -50,8 +50,7 @@ Create View DeptToEmp1 As&#13;&#10;
     ?s = uri(d:, ?deptname)&#13;&#10;
     ?o = uri(e:, ?empname)&#13;&#10;
   From&#13;&#10;
-    [[SELECT d.name AS deptname, e.name AS empname&#13;&#10
-        FROM departments d JOIN employees e ON (e.department_id = d.id)]]&#13;&#10;
+    [[SELECT d.name AS deptname, e.name AS empname FROM departments d JOIN employees e ON (e.department_id = d.id)]]&#13;&#10;
 </textarea>
 
 <textarea style="height: 150px" ui-codemirror="editorOptions.sml" readonly>
@@ -77,4 +76,6 @@ Create View DeptToEmp3 As&#13;&#10;
   From&#13;&#10;
     departments
 </textarea>
+
+
 

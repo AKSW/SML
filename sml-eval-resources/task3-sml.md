@@ -29,7 +29,7 @@ In this task setting, there are departments and employees that work in them:
 
 <br style="clear: both;" />
 
-<textarea style="height: 300px" ui-codemirror="editorOptions.sml" readonly>
+<textarea style="height: 320px" ui-codemirror="editorOptions.sml" readonly>
 Prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 Prefix ex: <http://example.com/>
 
@@ -57,9 +57,9 @@ Create View EmpsToDepts As
 
 
 
-<textarea style="height: 30px" ui-codemirror="editorOptions.ttl" readonly>ex:department1 rdfs:label "Development" .</textarea>
-<textarea style="height: 30px" ui-codemirror="editorOptions.ttl" readonly>ex:employee1 ex:worksIn ex:department1 .</textarea>
-<textarea style="height: 30px" ui-codemirror="editorOptions.ttl" readonly>ex:department1 ex:hasEmployee ex:employee1 .</textarea>
-<textarea style="height: 30px" ui-codemirror="editorOptions.ttl" readonly>ex:employee1 rdfs:label "Susan" .</textarea>
+<textarea style="height: 20px" ui-codemirror="editorOptions.ttl" readonly>ex:department1 rdfs:label "Development" .</textarea>
+<textarea style="height: 20px" ui-codemirror="editorOptions.ttl" readonly>ex:employee1 ex:worksIn ex:department1 .</textarea>
+<textarea style="height: 20px" ui-codemirror="editorOptions.ttl" readonly>ex:department1 ex:hasEmployeeOfTheMonth ex:employee1 .</textarea>
+<textarea style="height: 20px" ui-codemirror="editorOptions.ttl" readonly>ex:employee1 rdfs:label "Susan" .</textarea>
 
 
