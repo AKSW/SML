@@ -277,7 +277,7 @@ Remarks:
 <ul>
 <li>In the SML terminology, <i>Views</i> are used to express RDB2RDF mappings</li>
 <li>The <i>FROM</i> part is used to specify the source table. Queries can be stated by escaping them with double brackets, e.g. <i>[[SELECT ...]]</i></li>
-<li>Similar to R2RML, triples are generated from each row of the source table: Each row first binds to the placeholder <i>on the right hand side</i> (e.g. ?name) of the expressions of the <i>WITH</i> part. Afterwards, the expression is evaluated, and the final value is assigned to the variable on the <i>left hand side</i> (e.g. ?l), which is then used to place the value in a triple according to the <i>CONSTRUCT</i> template.</li> 
+<li>Similar to R2RML, triples are generated from each row of the source table: Each row first binds to the placeholders <i>on the right hand side</i> (e.g. ?name) of the expressions of the <i>WITH</i> part. Afterwards, the expression is evaluated, and the final value is assigned to the variable on the <i>left hand side</i> (e.g. ?l), which is then used to place the value in a triple according to the <i>CONSTRUCT</i> template.</li> 
 <li>To clarify: Variables on <i>the right hand side</i>, such as e.g. <i>?name</i> refer to columns of the source table.</li>
 <li>SML allows referencing prefixes in expressions, such as <i>ex:</i> </li>
 </ul>
