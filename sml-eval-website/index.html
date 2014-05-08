@@ -204,7 +204,7 @@ Now assume you would like to get the following RDF data (in turtle syntax) out o
 @prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt; .
 @prefix ex: &lt;http://example.com/&gt; .
 
-&lt;http://example.com/1&gt;
+ex:city1
   a ex:City ;
   rdfs:label "Berlin" .
 </textarea>
@@ -230,7 +230,7 @@ The R2RML and SML mappings that would accomplish this are presented below:
   a rr:TriplesMap;
   rr:logicalTable [ rr:tableName "cities" ] ;
   rr:subjectMap [
-    rr:template "http://example.com/{id}" ;
+    rr:template "http://example.com/city{id}" ;
     rr:class ex:City
   ] ;
   rr:predicateObjectMap [
@@ -247,9 +247,10 @@ Remarks:
 <li>A TriplesMap acts as a template for the generation of triples from <i>each row of the source table</i>. This means, each row of the source table is used to <i>bind</i> to the placeholders of the TriplesMap, and triples are emitted accordingly.</li> 
 <li><i>Exactly</i> one <i>subjectMap</i> determines the subjects of the triples which are created from the TriplesMap.</li>
 <li>A <i>set</i> of <i>predicateObjectMaps</i> are then used to attach predicates and objects to the respective subjects.
-<li>Those who are familiar with R2RML, please note that in the survey we avoided using the <i>rr:class</i> shorthand for rdf:type, as it seemed it could be easily overlooked.</li>
+<li>URIs are built using <i>rr:template</i> which supports making references to columns using names in curly braces.</li>
 </ul>
 
+Those who are familiar with R2RML, please note that in the survey we avoided using the <i>rr:class</i> shorthand for rdf:type, as it seemed it could be easily overlooked.
 
 
     </div>
@@ -267,7 +268,7 @@ Create View CitiesView As
     ?s rdfs:label ?l
   }
   With
-    ?s = uri(ex:, ?id)
+    ?s = uri(ex:, 'city', ?id)
     ?l = plainLiteral(?name)
   From
     cities
@@ -280,6 +281,7 @@ Remarks:
 <li>Similar to R2RML, triples are generated from each row of the source table: Each row first binds to the placeholders <i>on the right hand side</i> (e.g. ?name) of the expressions of the <i>WITH</i> part. Afterwards, the expression is evaluated, and the final value is assigned to the variable on the <i>left hand side</i> (e.g. ?l), which is then used to place the value in a triple according to the <i>CONSTRUCT</i> template.</li> 
 <li>To clarify: Variables on <i>the right hand side</i>, such as e.g. <i>?name</i> refer to columns of the source table.</li>
 <li>SML allows referencing prefixes in expressions, such as <i>ex:</i> </li>
+<li>URIs are built using the <i>uri(...)</i> expression, whose evaluation will concatenate the values of all given arguments (prefixes will be expanded first).</li>
 </ul>
 
 
