@@ -158,7 +158,7 @@
 	<div class="col-md-12">
 
 <h2>What is the survey about?</h2>
-When one is working with Linked Data, one often faces the need to convert <i>data stored in relational databases</i> to RDF. 
+When working with Linked Data, one often faces the need to convert <i>data stored in relational databases</i> to RDF. 
 For this purpose, the RDF-based mapping language known as <b>R2RML</b> became a standard recently. (<a href="http://www.w3.org/TR/r2rml/" target="_blank">Click here for the R2RML specification</a>).
 However, we felt that these efforts should be complemented with a mapping language that is in the spirit of traditional database tooling, such as the SQL CREATE VIEW statement.
 We named our developed language <i>Sparqlification Mapping Language</i> (SML), as we originally used it for SPARQL-to-SQL rewriting. (<a href="http://sml.aksw.org" target="_blank">Click here for mor info about SML</a>, inculding an initial specification).
@@ -214,7 +214,7 @@ The R2RML and SML mappings that would accomplish this are presented below:
     <div class="col-md-6">
 
 <h2>R2RML</h2>
-<textarea style="height: 300px" ui-codemirror="editorOptions.ttl" readonly>
+<textarea style="height: 240px" ui-codemirror="editorOptions.ttl" readonly>
 @prefix rr: &lt;http://www.w3.org/ns/r2rml#&gt; .
 @prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt; .
 @prefix ex: &lt;http://example.com/&gt; .
@@ -223,7 +223,7 @@ The R2RML and SML mappings that would accomplish this are presented below:
   a rr:TriplesMap;
   rr:logicalTable [ rr:tableName "cities" ] ;
   rr:subjectMap [
-    rr:template "http://example.com/\{id\}" ;
+    rr:template "http://example.com/{id}" ;
     rr:class ex:City
   ] ;
   rr:predicateObjectMap [
@@ -250,7 +250,7 @@ Remarks:
 
 
 <h2>SML</h2>
-<textarea style="height: 300px" ui-codemirror="editorOptions.sml" readonly>
+<textarea style="height: 240px" ui-codemirror="editorOptions.sml" readonly>
 Prefix ex: &lt;http://example.com/&gt;
 Prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt; 
 
