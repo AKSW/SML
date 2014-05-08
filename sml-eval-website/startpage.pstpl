@@ -1,0 +1,140 @@
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<title>{SURVEYNAME}</title>
+<meta name="generator" content="LimeSurvey http://www.limesurvey.org" />
+
+<!-- The following line includes jquery-ui.css or jquery-ui-custom.css from template dir, template.css and needed specific css file for survey -->
+{TEMPLATECSS}
+
+<!--[if lte IE 6]>
+<link rel="stylesheet" type="text/css" href="{TEMPLATEURL}ie_fix_6.css" />
+<![endif]-->
+<!--[if IE 7]>
+<link rel="stylesheet" type="text/css" href="{TEMPLATEURL}ie_fix_7.css" />
+<![endif]-->
+<!--[if IE 8]>
+<link rel="stylesheet" type="text/css" href="{TEMPLATEURL}ie_fix_8.css" />
+<![endif]-->
+
+<!-- The following CSS hides visual elements of the progress bar from screen readers. -->
+<style type="text/css" media="aural tty">
+    progress-graph .zero, progress-graph .graph, progress-graph .cent { display: none; }
+		</style>
+	<!-- The following line includes jquery.js, jquery-ui.js, survey_runtime.js , template.js and needed specific js file for survey -->
+	{TEMPLATEJS}
+
+
+        <!-- bower:css -->
+ <!--       <link rel="stylesheet" href="http://survey.geoknow.eu/templates/default/bower_components/bootstrap/dist/css/bootstrap.css" /> -->
+        <link rel="stylesheet" href="http://survey.geoknow.eu/templates/default/bower_components/codemirror/lib/codemirror.css" />
+        <link rel="stylesheet" href="http://survey.geoknow.eu/templates/default/bower_components/sml-codemirror-mode/css/sparqlcolors.css" />
+        <!-- endbower -->
+
+
+
+<style>
+
+.navcontainer {
+    overflow: hidden;
+    margin: 10px;
+}
+
+.dbtable {
+    font-family: Verdana;
+    border-collapse: collapse;
+    border-style: none;
+}
+
+.dbtable td, th {
+    border-color: black;
+    border-style: solid;
+    border-width: 1px;
+    padding: 5px;
+}
+
+.dbtable th {
+    text-align: left;
+    font-weight: bold;
+}
+
+.dbtable tr:nth-child(odd) {
+    background-color: #f0f0ff;
+}
+
+.dbtable tr:nth-child(even) {
+    background-color: #fafaff;
+}
+
+.dbtable tr:first-child {
+    color: #ffffff;
+    background-color: #aaaaff;
+}
+
+.dbtable tr:nth-child(2) {
+    background-color: #ccccff;
+}
+
+
+.navcontainer {
+    clear: both;
+    margin: 20px; 10px;
+}
+
+.navlist li {
+    float: left;
+    list-style-type: none;
+    padding-right: 20px;
+}
+
+
+</style>
+
+
+        <!-- bower:js -->
+        <script src="http://survey.geoknow.eu/templates/default/bower_components/angular/angular.js"></script>
+        <script src="http://survey.geoknow.eu/templates/default/bower_components/codemirror/lib/codemirror.js"></script>
+        <script src="http://survey.geoknow.eu/templates/default/bower_components/angular-ui-codemirror/ui-codemirror.js"></script>
+        <script src="http://survey.geoknow.eu/templates/default/bower_components/sml-codemirror-mode/sml-codemirror-mode.js"></script>
+        <!-- endbower -->
+        <script src="http://survey.geoknow.eu/templates/default/bower_components/turtle-codemirror-mode/turtle-codemirror-mode.js"></script>
+
+        <script type="text/javascript">
+ 
+            angular
+                .module('surveyModule', ['ui.codemirror'])
+        
+                .controller('SurveyCtrl', [ '$scope', function($scope) {
+                    $scope.editorOptions = {
+
+                        sml: {
+                            lineWrapping : true,
+                            lineNumbers: true,
+                            tabMode: 'indent',
+                            matchBrackets: true,                      
+                            mode: 'sml',
+                            readOnly: true
+                        },
+
+                        ttl: {
+                            lineWrapping : true,
+                            lineNumbers: true,
+                            tabMode: 'indent',
+                            matchBrackets: true,
+                            mode: 'text/turtle',
+                            readOnly: true
+                        }
+                    };
+                }])
+            ;
+
+        </script>
+
+
+
+<link rel="shortcut icon" href="{TEMPLATEURL}favicon.ico" />
+{GOOGLE_ANALYTICS_JAVASCRIPT}
+</head>
+<body class="default lang-{SURVEYLANGUAGE} {SURVEYFORMAT}" ng-app="surveyModule" ng-controller="SurveyCtrl">
+    <div class="outerframe">
+        <table class="innerframe">
+            <tr>
+                <td>

@@ -1,4 +1,4 @@
-Mark the view that <i>exactly</i> yield the given reference output based on the given table.
+Mark the view that <i>exactly</i> yields the given reference output based on the given table.
 
 <br style="clear: both;" />
 
@@ -42,7 +42,7 @@ d:Development o:hasEmployee e:Susan .
 
 
 <textarea style="height: 150px" ui-codemirror="editorOptions.sml" readonly>
-Create View DeptToEmp1 As&#13;&#10;
+Create View DeptToEmp As&#13;&#10;
   Construct {&#13;&#10;
     ?s o:hasEmployee ?o&#13;&#10;
   }&#13;&#10;
@@ -54,7 +54,7 @@ Create View DeptToEmp1 As&#13;&#10;
 </textarea>
 
 <textarea style="height: 150px" ui-codemirror="editorOptions.sml" readonly>
-Create View DeptToEmp2 As&#13;&#10;
+Create View DeptToEmp As&#13;&#10;
   Construct {&#13;&#10;
     ?s o:hasEmployee ?o&#13;&#10;
   }&#13;&#10;
@@ -66,7 +66,7 @@ Create View DeptToEmp2 As&#13;&#10;
 </textarea>
 
 <textarea style="height: 150px" ui-codemirror="editorOptions.sml" readonly>
-Create View DeptToEmp3 As&#13;&#10;
+Create View DeptToEmp As&#13;&#10;
   Construct {&#13;&#10;
     ?s o:hasEmployee ?o&#13;&#10;
   }&#13;&#10;

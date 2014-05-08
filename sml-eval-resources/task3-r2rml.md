@@ -56,7 +56,7 @@ In this task setting, there are departments and employees that work in them:
     rr:template "http://example.com/department\{id\}" ;
   ] ;
   rr:predicateObjectMap [
-    rr:predicate ex:hasEmployeeOfTheMonth ;
+    rr:predicate ex:hasLeader ;
     rr:objectMap [ rr:template "http://example.com/employee\{employee_id\}" ]
   ] .
 </textarea>
@@ -64,7 +64,7 @@ In this task setting, there are departments and employees that work in them:
 
 
 <textarea style="height: 20px" ui-codemirror="editorOptions.ttl" readonly>ex:employee1 rdfs:label "Susan" .</textarea>
-<textarea style="height: 20px" ui-codemirror="editorOptions.ttl" readonly>ex:department1 ex:hasEmployeeOfTheMonth ex:employee1 .</textarea>
+<textarea style="height: 20px" ui-codemirror="editorOptions.ttl" readonly>ex:department1 ex:hasLeader ex:employee1 .</textarea>
 <textarea style="height: 20px" ui-codemirror="editorOptions.ttl" readonly>ex:exployee1 ex:worksIn ex:department1 .</textarea>
 <textarea style="height: 20px" ui-codemirror="editorOptions.ttl" readonly>ex:department1 rdfs:label "Development" .</textarea>
 

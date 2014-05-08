@@ -49,7 +49,7 @@ r:John
   ] ;&#13;&#10;
   rr:predicateObjectMap [&#13;&#10;
     rr:predicate rdf:type ;&#13;&#10;
-    rr:object ex:Employee&#13;&#10;
+    rr:object o:Employee&#13;&#10;
   ] ;&#13;&#10;
   rr:predicateObjectMap [&#13;&#10;
     rr:predicate rdfs:label ;&#13;&#10;
@@ -75,7 +75,7 @@ r:John
   ] ;&#13;&#10;
   rr:predicateObjectMap [&#13;&#10;
     rr:predicate rdf:type ;&#13;&#10;
-    rr:object ex:Employee&#13;&#10;
+    rr:object o:Employee&#13;&#10;
   ] ;&#13;&#10;
   rr:predicateObjectMap [&#13;&#10;
     rr:predicate rdfs:label ;&#13;&#10;
@@ -104,7 +104,7 @@ r:John
   ] ;&#13;&#10;
   rr:predicateObjectMap [&#13;&#10;
     rr:predicate rdf:type ;&#13;&#10;
-    rr:object ex:Employee&#13;&#10;
+    rr:object o:Employee&#13;&#10;
   ] ;&#13;&#10;
   rr:predicateObjectMap [&#13;&#10;
     rr:predicate rdfs:label ;&#13;&#10;

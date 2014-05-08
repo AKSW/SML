@@ -19,6 +19,7 @@ Mark all the triples that actually appear as output of the given mapping for the
 <textarea style="height: 180px" ui-codemirror="editorOptions.ttl" readonly>
 @prefix rr: &lt;http://www.w3.org/ns/r2rml#&gt; .
 @prefix rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt; .
+@prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt; .
 @prefix ex: &lt;http://example.com/&gt; .
 
 &lt;EmployeesMap&gt;

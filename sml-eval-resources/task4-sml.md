@@ -41,7 +41,7 @@ r:Design
 
 
 <textarea style="height: 200px" ui-codemirror="editorOptions.sml" readonly>
-Create View DepartmentsView1 As&#13;&#10;
+Create View DepartmentsView As&#13;&#10;
   Construct {&#13;&#10;
     ?s&#13;&#10;
       a o:Department ;&#13;&#10;
@@ -57,7 +57,7 @@ Create View DepartmentsView1 As&#13;&#10;
 </textarea>
 
 <textarea style="height: 200px" ui-codemirror="editorOptions.sml" readonly>
-Create View DepartmentsView2 As&#13;&#10;
+Create View DepartmentsView As&#13;&#10;
   Construct {&#13;&#10;
     ?s&#13;&#10;
       a o:Department ;&#13;&#10;
@@ -73,7 +73,7 @@ Create View DepartmentsView2 As&#13;&#10;
 </textarea>
 
 <textarea style="height: 200px" ui-codemirror="editorOptions.sml" readonly>
-Create View DepartmentsView3 As&#13;&#10;
+Create View DepartmentsView As&#13;&#10;
   Construct {&#13;&#10;
     ?s&#13;&#10;
       a o:Department ;&#13;&#10;

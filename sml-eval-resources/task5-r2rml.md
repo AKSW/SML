@@ -1,4 +1,4 @@
-Mark the view that <i>exactly</i> yield the given reference output based on the given table.
+Mark the view that <i>exactly</i> yields the given reference output based on the given table.
 
 <br style="clear: both;" />
 
@@ -38,12 +38,12 @@ Reference Output (assume the prefixes hold for the whole task):
 @prefix o: &lt;http://example.com/ontology/&gt; .
 @prefix d: &lt;http://example.com/department/&gt; .
 
-e:Susan o:isEmpOfTheMonth d:Development
+e:Susan o:isLeaderOf d:Development
 </textarea>
 
 
 <textarea style="height: 220px" ui-codemirror="editorOptions.ttl" readonly>
-&lt;EmpToDept1&gt;&#13;&#10;
+&lt;EmpToDept&gt;&#13;&#10;
   a rr:TriplesMap ;&#13;&#10;
   rr:logicalTable [ rr:query """&#13;&#10;
       SELECT e.name AS empname, d.name AS deptname&#13;&#10;
@@ -54,7 +54,7 @@ e:Susan o:isEmpOfTheMonth d:Development
     rr:template "http://example.com/employee/\{empname\}"&#13;&#10;
   ] ;&#13;&#10;
   rr:predicateObjectMap [&#13;&#10;
-    rr:predicate o:isEmpOfTheMonth ;&#13;&#10;
+    rr:predicate o:isLeaderOf ;&#13;&#10;
     rr:objectMap [&#13;&#10;
       rr:template "http://example.com/department/\{deptname\}"&#13;&#10;
     ]&#13;&#10;
@@ -64,14 +64,14 @@ e:Susan o:isEmpOfTheMonth d:Development
 
 
 <textarea style="height: 180px" ui-codemirror="editorOptions.ttl" readonly>
-&lt;EmpToDept2&gt;&#13;&#10;
+&lt;EmpToDept&gt;&#13;&#10;
   a rr:TriplesMap ;&#13;&#10;
   rr:logicalTable [ rr:table "departments" ] ;&#13;&#10;
   rr:subjectMap [&#13;&#10;
     rr:template "http://example.com/employee/\{employee_id\}"&#13;&#10;
   ] ;&#13;&#10;
   rr:predicateObjectMap [&#13;&#10;
-    rr:predicate o:isEmpOfTheMonth ;&#13;&#10;
+    rr:predicate o:isLeaderOf ;&#13;&#10;
     rr:objectMap [&#13;&#10;
       rr:template "http://example.com/department/\{id\}"&#13;&#10;
     ]&#13;&#10;
@@ -81,14 +81,14 @@ e:Susan o:isEmpOfTheMonth d:Development
 
 
 <textarea style="height: 180px" ui-codemirror="editorOptions.ttl" readonly>
-&lt;DeptToEmp3&gt;&#13;&#10;
+&lt;EmpToDept&gt;&#13;&#10;
   a rr:TriplesMap ;&#13;&#10;
   rr:logicalTable [ rr:table "employees" ] ;&#13;&#10;
   rr:subjectMap [&#13;&#10;
     rr:template "http://example.com/employee/\{name\}"&#13;&#10;
   ] ;&#13;&#10;
   rr:predicateObjectMap [&#13;&#10;
-    rr:predicate o:isEmpOfTheMonth ;&#13;&#10;
+    rr:predicate o:isLeaderOf ;&#13;&#10;
     rr:objectMap [&#13;&#10;
       rr:template "http://example.com/department/\{id\}"&#13;&#10;
     ]&#13;&#10;

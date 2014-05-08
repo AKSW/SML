@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+        <title></title>
+        <meta name="description" content=""/>
+        <meta name="viewport" content="width=device-width"/>
+        <link rel="stylesheet" href="styles/main.css"/>
+
+        <link rel="stylesheet" href="libs/twitter-bootstrap/3.0.1/css/bootstrap.min.css" />
+
+        <link rel="stylesheet" href="bower_components/codemirror/lib/codemirror.css" />
+        <link rel="stylesheet" href="bower_components/sml-codemirror-mode/css/sparqlcolors.css" />
+
+
+		<style media="screen" type="text/css">
+		.image {
+	 	    max-width: 144px;
+	 	    max-height: 144px;
+		    vertical-align: middle;
+		}
+		
+		.image-frame {
+			display: table;
+	
+		    width: 150px;
+		    height: 150px;	
+			line-height: 150px; /* should match height */
+			text-align: center;
+	  
+			border: 1px;
+			border-collapse: true;
+			border-style: solid;
+			border-color: #CCCCCC;
+			background-color: #EEEEEE;
+		}
+		
+
+		.navcontainer {
+		    overflow: hidden;
+		    margin: 10px;
+		}
+		
+		.dbtable {
+		    font-family: Verdana;
+		    border-collapse: collapse;
+		    border-style: none;
+		}
+		
+		.dbtable td, th {
+		    border-color: black;
+		    border-style: solid;
+		    border-width: 1px;
+		    padding: 5px;
+		}
+		
+		.dbtable th {
+		    text-align: left;
+		    font-weight: bold;
+		}
+		
+		.dbtable tr:nth-child(odd) {
+		    background-color: #f0f0ff;
+		}
+		
+		.dbtable tr:nth-child(even) {
+		    background-color: #fafaff;
+		}
+		
+		.dbtable tr:first-child {
+		    color: #ffffff;
+		    background-color: #aaaaff;
+		}
+		
+		.dbtable tr:nth-child(2) {
+		    background-color: #ccccff;
+		}
+		
+		
+		.navcontainer {
+		    clear: both;
+		    margin: 20px; 10px;
+		}
+		
+		.navlist li {
+		    float: left;
+		    list-style-type: none;
+		    padding-right: 20px;
+		}
+		
+		</style>
+
+
+
+        <script src="bower_components/angular/angular.js"></script>
+        <script src="bower_components/codemirror/lib/codemirror.js"></script>
+        <script src="bower_components/angular-ui-codemirror/ui-codemirror.js"></script>
+        <script src="bower_components/sml-codemirror-mode/sml-codemirror-mode.js"></script>
+        <script src="bower_components/turtle-codemirror-mode/turtle-codemirror-mode.js"></script>
+
+        <script type="text/javascript">
+ 
+            angular
+                .module('surveyModule', ['ui.codemirror'])
+        
+                .controller('SurveyCtrl', [ '$scope', function($scope) {
+                    $scope.editorOptions = {
+
+                        sml: {
+                            lineWrapping : true,
+                            lineNumbers: true,
+                            tabMode: 'indent',
+                            matchBrackets: true,                      
+                            mode: 'sml',
+                            readOnly: true
+                        },
+
+                        ttl: {
+                            lineWrapping : true,
+                            lineNumbers: true,
+                            tabMode: 'indent',
+                            matchBrackets: true,
+                            mode: 'text/turtle',
+                            readOnly: true
+                        }
+                    };
+                }])
+            ;
+
+        </script>
+
+    </head>
+<body ng-app="surveyModule" ng-controller="SurveyCtrl">
+	
+<div class="container">
+<div class="row">
+	<div class="col-md-12">
+		<div class="jumbotron">
+			<!--<img src="resources/images/facete-banner.png" style="top: 0px; width: 100%" /> -->
+			<img src="resources/images/banner4.png" style="top: 0px; width: 100%" />
+
+			<h3 style="bottom: 80px" color: #8080ff">Sparqlification Mapping Language (SML) / R2RML Comparative User Study</h3>
+		</div>
+	</div>
+</div>
+			
+<div class="row">
+    <div class="col-md-offset-5 col-md-2">
+        <a href="" class="btn btn-large btn-primary" style="width: 100%">Go to the Survey!</a>
+    </div>
+</div>
+        
+<div class="row">
+	<div class="col-md-12">
+
+<h2>What is the survey about?</h2>
+When one is working with Linked Data, one often faces the need to convert <i>data stored in relational databases</i> to RDF. 
+For this purpose, the RDF-based mapping language known as <b>R2RML</b> became a standard recently. (<a href="http://www.w3.org/TR/r2rml/" target="_blank">Click here for the R2RML specification</a>).
+However, we felt that these efforts should be complemented with a mapping language that is in the spirit of traditional database tooling, such as the SQL CREATE VIEW statement.
+We named our developed language <i>Sparqlification Mapping Language</i> (SML), as we originally used it for SPARQL-to-SQL rewriting. (<a href="http://sml.aksw.org" target="_blank">Click here for mor info about SML</a>, inculding an initial specification).
+However, we realized that our efforts may be of interest to a wider community.
+In this survey, we are interested in finding out how well the Semantic Web community can cope with either of these languages and get feedback on our SML development.  
+					   
+<h2>What to expect?</h2>
+In this survey, you will face 5 tasks, each comprised of an SML and R2RML sub-task.
+					   
+<h2>An Example</h2>
+
+Consider the following table:
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-offset-5 col-md-2">
+
+
+<table class="dbtable">
+  <tr><th>cities</th></tr>
+  <tr><th>id (int)</th><th>name (text)</th></tr>
+  <tr><td>1</td><td>Berlin</td></tr>
+</table>
+
+
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col-md-12">
+    
+Now assume you would like the get the following RDF data (in turtle syntax) out of it:
+<textarea style="height: 120px" ui-codemirror="editorOptions.ttl" readonly>
+@prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt; .
+@prefix ex: &lt;http://example.com/&gt; .
+
+&lt;http://example.org/1&gt;
+  a ex:City ;
+  rdfs:label "Berlin" .
+</textarea>
+    
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+The R2RML and SML mappings that would accomplish this are presented below: 
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-6">
+
+<h2>R2RML</h2>
+<textarea style="height: 300px" ui-codemirror="editorOptions.ttl" readonly>
+@prefix rr: &lt;http://www.w3.org/ns/r2rml#&gt; .
+@prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt; .
+@prefix ex: &lt;http://example.com/&gt; .
+
+&lt;CitiesMap&gt;
+  a rr:TriplesMap;
+  rr:logicalTable [ rr:tableName "cities" ] ;
+  rr:subjectMap [
+    rr:template "http://example.com/\{id\}" ;
+    rr:class ex:City
+  ] ;
+  rr:predicateObjectMap [
+    rr:predicate rdfs:label ;
+    rr:objectMap [ rr:column "name" ]
+  ] .
+</textarea>
+
+
+Remarks:
+<ul>
+<li>In the R2RML terminology, <i>TriplesMaps</i> are used to express RDB2RDF mappings</li>
+<li>With <i>rr:logicalTable</i> one specifies from which table to get the data. Thereby, <i>rr:tableName</i> references a table by name, whereas e.g. <i>rr:sqlQuery</i> could be used for SQL queries.</li>
+<li>A TriplesMap acts as a template for the generation of triples from <i>each row of the source table</i>. This means, each row of the source table is used to <i>bind</i> to the placeholders of the TriplesMap, and triples are emitted accordingly.</li> 
+<li><i>Exactly</i> one <i>subjectMap</i> determines the subjects of the triples which are created from the TriplesMap.</li>
+<li>A <i>set</i> of <i>predicateObjectMaps</i> are then used to attach predicates and objects to the respective subjects.
+<li>Those who are familiar with R2RML, please note that in the survey we avoided using the <i>rr:class</i> shorthand for rdf:type, as it seemed it could be easily overlooked.</li>
+</ul>
+
+
+
+    </div>
+    <div class="col-md-6">
+
+
+<h2>SML</h2>
+<textarea style="height: 300px" ui-codemirror="editorOptions.sml" readonly>
+Prefix ex: &lt;http://example.com/&gt;
+Prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt; 
+
+Create View CitiesView As
+  Construct {
+    ?s a ex:City .
+    ?s rdfs:label ?l
+  }
+  With
+    ?s = uri(ex:, ?id)
+    ?l = plainLiteral(?name)
+  From
+    cities
+</textarea>
+
+Remarks:
+<ul>
+<li>In the SML terminology, <i>Views</i> are used to express RDB2RDF mappings</li>
+<li>The <i>FROM</i> part is used to specify the source table. Queries can be stated by escaping them with double brackets, e.g. <i>[[SELECT ...]]</i></li>
+<li>Similar to R2RML, triples are generated from each row of the source table: Each row first binds to the placeholder <i>on the right hand side</i> (e.g. ?name) of the expressions of the <i>WITH</i> part. Afterwards, the expression is evaluated, and the final value is assigned to the variable on the <i>left hand side</i> (e.g. ?l), which is then used to place the value in a triple according to the <i>CONSTRUCT</i> template.</li> 
+<li>To clarify: Variables on <i>the right hand side</i>, such as e.g. <i>?name</i> refer to columns of the source table.</li>
+<li>SML allows referencing prefixes in expressions, such as <i>ex:</i> </li>
+</ul>
+
+
+    </div>
+</div>
+
+
+
+<div class="row">
+    <div class="col-md-6">
+    </div>
+    <div class="col-md-6">
+    </div>
+</div>    
+
+<div class="row">
+    <div class="col-md-offset-5 col-md-2">
+        <a href="" class="btn btn-large btn-primary" style="width: 100%">Go to the Survey!</a>
+    </div>
+</div>
+			
+</div>
+	
+
+    </body>
+</html>

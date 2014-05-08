@@ -59,7 +59,7 @@ Create View EmpsToDepts As
 
 <textarea style="height: 20px" ui-codemirror="editorOptions.ttl" readonly>ex:department1 rdfs:label "Development" .</textarea>
 <textarea style="height: 20px" ui-codemirror="editorOptions.ttl" readonly>ex:employee1 ex:worksIn ex:department1 .</textarea>
-<textarea style="height: 20px" ui-codemirror="editorOptions.ttl" readonly>ex:department1 ex:hasEmployeeOfTheMonth ex:employee1 .</textarea>
+<textarea style="height: 20px" ui-codemirror="editorOptions.ttl" readonly>ex:department1 ex:hasLeader ex:employee1 .</textarea>
 <textarea style="height: 20px" ui-codemirror="editorOptions.ttl" readonly>ex:employee1 rdfs:label "Susan" .</textarea>
 
 
