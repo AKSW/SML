@@ -29,9 +29,10 @@ In this task setting, there are departments and employees that work in them:
 
 <br style="clear: both;" />
 
-<textarea style="height: 380px" ui-codemirror="editorOptions.ttl" readonly>
+<textarea style="height: 400px" ui-codemirror="editorOptions.ttl" readonly>
 @prefix rr: &lt;http://www.w3.org/ns/r2rml#&gt; .
 @prefix rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt; .
+@prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt; .
 @prefix ex: &lt;http://example.com/&gt; .
 
 &lt;EmployeesMap&gt;

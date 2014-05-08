@@ -31,8 +31,8 @@ Mark the view that <i>exactly</i> yields the given reference output based on the
 
 
 Reference Output (assume the prefixes hold for the whole task):
-<textarea style="height: 120px" ui-codemirror="editorOptions.ttl" readonly>
-@prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt; .
+<textarea style="height: 110px" ui-codemirror="editorOptions.ttl" readonly>
+@prefix rr: &lt;http://www.w3.org/ns/r2rml#&gt; .
 
 @prefix e: &lt;http://example.com/employee/&gt; .
 @prefix o: &lt;http://example.com/ontology/&gt; .
